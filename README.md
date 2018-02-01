@@ -38,7 +38,6 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
-
 ### Velocity
 ```lua
 local Velocity = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
@@ -56,7 +55,6 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
-
 ### Teleport
 ```lua
 local Teleport = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
@@ -77,7 +75,6 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
-
 ### Slowmotion
 ```lua
 local Slowmotion_Start = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)

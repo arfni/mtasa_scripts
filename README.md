@@ -106,7 +106,7 @@ end)
 #### fadeGameSpeed
 This function smoothly transitions to another gamespeed
 
-*Paste this function at the bottom of your lua script and call fadeGameSpeed instead of setGameSpeed*
+*Paste this function (including the math.round function) at the bottom of your lua script and call fadeGameSpeed instead of setGameSpeed*
 ```lua
 function fadeGameSpeed(value)
 	local count = 1

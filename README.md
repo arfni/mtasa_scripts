@@ -8,7 +8,7 @@ This repository contains useful code snippets for MTA:SA maps.
 		* [fadeGameSpeed](#fadegamespeed)
 	* [Explosion](#explosion)
 	
-* [Play Music](#music)
+* [Play music](#music)
 
 * [Draw distance](#draw-distance)
 

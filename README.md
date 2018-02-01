@@ -6,6 +6,8 @@ This repository contains useful code snippets for MTA:SA maps.
 	* [Teleport](#teleport)
 	* [Slowmotion](#slowmotion)
 	* [Explosion](#explosion)
+	
+* [Play Music](#music)
 
 * [Changing the sky color](#changing-the-sky-color)
 
@@ -18,14 +20,12 @@ This repository contains useful code snippets for MTA:SA maps.
 ---
 ## Markers
 ```lua
-local playerid = getLocalPlayer()
-
 local Marker = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 -- Valid marker types:
 -- checkpoint, ring, cylinder, corona, arrow
 
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-	if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+	if playerid == getLocalPlayer() then
 		if isPedInVehicle(playerid) then
 			local vehicleid = getPedOccupiedVehicle(playerid)
 			
@@ -39,12 +39,10 @@ end)
 
 ### Velocity
 ```lua
-local playerid = getLocalPlayer()
-
 local Velocity = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-	if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+	if playerid == getLocalPlayer() then
 		if isPedInVehicle(playerid) then
 			local vehicleid = getPedOccupiedVehicle(playerid)
 			
@@ -59,12 +57,10 @@ end)
 
 ### Teleport
 ```lua
-local playerid = getLocalPlayer()
-
 local Teleport = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-	if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+	if playerid == getLocalPlayer() then
 		if isPedInVehicle(playerid) then
 			local vehicleid = getPedOccupiedVehicle(playerid)
 			
@@ -82,13 +78,11 @@ end)
 
 ### Slowmotion
 ```lua
-local playerid = getLocalPlayer()
-
 local Slowmotion_Start = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 local Slowmotion_End = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-	if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+	if playerid == getLocalPlayer() then
 		if isPedInVehicle(playerid) then
 			local vehicleid = getPedOccupiedVehicle(playerid)
 			
@@ -106,12 +100,10 @@ end)
 
 ### Explosion
 ```lua
-local playerid = getLocalPlayer()
-
 local Explosion = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-	if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+	if playerid == getLocalPlayer() then
 		if isPedInVehicle(playerid) then
 			local vehicleid = getPedOccupiedVehicle(playerid)
 			
@@ -138,6 +130,41 @@ end)
 | 10 | Tank Grenade  |
 | 11 | Small         |
 | 12 | Tiny          |
+---
+## Music
+```lua
+local Music = false
+
+addEventHandler("onClientResourceStart", getResourceRootElement(getThisResource()), function()
+    	Music = playSound("PATH/TO/MUSICFILE.MP3", true)
+	setRadioChannel(0)
+end)
+
+addEventHandler("onClientPlayerRadioSwitch", getRootElement(), function()
+	if getRadioChannel() > 0 then
+		setRadioChannel(0)
+	end
+	cancelEvent()
+end)
+
+addEventHandler("onClientPlayerVehicleEnter", getRootElement(), function()
+	setRadioChannel(0)
+	cancelEvent()
+end)
+
+addCommandHandler("music", function()
+	if Music then
+		if getSoundVolume(Music) == 0 then
+			setSoundVolume(Music, 1)
+
+		elseif getSoundVolume(Music) == 1 then
+			setSoundVolume(Music, 0)
+		end
+	end
+end)
+
+bindKey("m", "down", "music")
+```
 ---
 ## Changing the sky color
 ```lua

@@ -5,7 +5,7 @@ This repository contains useful code snippets for MTA:SA maps.
 	* [Velocity](#velocity)
 	* [Teleport](#teleport)
 	* [Slowmotion](#slowmotion)
-		* [fadeGameSpeed](#fadeGameSpeed)
+		* [fadeGameSpeed](#fadegamespeed)
 	* [Explosion](#explosion)
 	
 * [Play Music](#music)

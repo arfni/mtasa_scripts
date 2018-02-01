@@ -1,9 +1,7 @@
-local playerid = getLocalPlayer()
-
 local Marker = createMarker(X, Y, Z, "TYPE", SIZE, 0, 0, 0)
  
-addEventHandler("onClientMarkerHit",getRootElement(),function(player)
-    if player == getLocalPlayer() then
+addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
+    if playerid == getLocalPlayer() then
         if isPedInVehicle(playerid) then
             local vehicleid = getPedOccupiedVehicle(playerid)
             if source == Marker then

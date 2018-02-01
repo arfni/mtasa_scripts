@@ -202,8 +202,8 @@ bindKey("m", "down", "music")
 ---
 ## Draw distance
 ```lua
-addEventHandler("onClientResourceStart",getResourceRootElement(getThisResource()),function()
-	for i,object in pairs(getElementsByType("object")) do
+addEventHandler("onClientResourceStart", getResourceRootElement(getThisResource()), function()
+	for i, object in pairs(getElementsByType("object")) do
 		if isElement(object) then
 			local elementID = getElementModel(object)
 			engineSetModelLODDistance(elementID, 300)

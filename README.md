@@ -10,6 +10,8 @@ This repository contains useful code snippets for MTA:SA maps.
 	
 * [Play Music](#music)
 
+* [Draw distance](#draw-distance)
+
 * [Changing the sky color](#changing-the-sky-color)
 
 * [Changing the water color](#changing-the-water-color)
@@ -193,6 +195,18 @@ addCommandHandler("music", function()
 end)
 
 bindKey("m", "down", "music")
+```
+---
+## Draw distance
+```lua
+addEventHandler("onClientResourceStart",getResourceRootElement(getThisResource()),function()
+	for i,object in pairs(getElementsByType("object")) do
+		if isElement(object) then
+			local elementID = getElementModel(object)
+			engineSetModelLODDistance(elementID, 300)
+		end
+	end
+end)
 ```
 ---
 ## Changing the sky color

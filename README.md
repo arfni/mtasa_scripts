@@ -17,6 +17,8 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Destroy vehicle if it's not (or if it's) upside down at a certain location](shortcut%20prevention/isVehicleUpsideDown.lua)
 
+* [Slowdown prevention](slowbug%20fix/SBfix.lua)
+
 ---
 ## Markers
 ```lua

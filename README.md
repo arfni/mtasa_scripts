@@ -15,7 +15,8 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Text transition in/out](text/Move%20and%20fade%20in%20and%20out.lua) | <a href="https://i.dnlk.de/31583e270a03cc778219d884a644e93b.gif">> GIF preview</a>
 
-* [Destroy vehicle if it's not (or if it's) upside down at a certain location](shortcut%20prevention/isVehicleUpsideDown.lua)
+* [Shortcut prevention](shortcut%20prevention)
+	* [isVehicleUpsideDown](shortcut%20prevention/isVehicleUpsideDown.lua)
 
 * [Slowdown prevention](Slowbug%20fix/SBfix.lua)
 

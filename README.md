@@ -13,7 +13,7 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Text moving & fading in (and out)](text/Move%20and%20fade%20in%20and%20out.lua)
 
-* [Destroy vehicle if it's not (or if it's) upside down at a certain location](text/isVehicleUpsideDown.lua)
+* [Destroy vehicle if it's not (or if it's) upside down at a certain location](shortcut prevention/isVehicleUpsideDown.lua)
 
 ---
 ## Markers

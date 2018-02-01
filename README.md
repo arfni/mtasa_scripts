@@ -13,7 +13,7 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Changing the water color](#changing-the-water-color)
 
-* [Text transition in/out](text/Move%20and%20fade%20in%20and%20out.lua) | [> GIF preview](https://i.dnlk.de/31583e270a03cc778219d884a644e93b.gif)
+* [Text transition in/out](text/Move%20and%20fade%20in%20and%20out.lua) | <a href="https://i.dnlk.de/31583e270a03cc778219d884a644e93b.gif)" target="_blank">> GIF preview</a>
 
 * [Destroy vehicle if it's not (or if it's) upside down at a certain location](shortcut%20prevention/isVehicleUpsideDown.lua)
 

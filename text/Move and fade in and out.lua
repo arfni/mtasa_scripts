@@ -18,7 +18,7 @@ function showText(text, durationInMS)
 	infoT.Time = durationInMS
 end
 
-addEventHandler("onClientRender",getRootElement(),function()
+addEventHandler("onClientRender", getRootElement(), function()
 	if infoT.Drawn then
 		dxDrawText(infoT.Text, screenWidth / 2 - infoT.Width / 2, infoT.Top, 0, 0, tocolor(255, 255, 255, infoT.Alpha), 2.0, "arial", "left", "top", false, false, false)
 		if infoT.Alpha < 255 and getTickCount() - infoT.LastUpdateA >= 30 then

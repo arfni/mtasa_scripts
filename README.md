@@ -5,6 +5,8 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Changing the water color](#changing-the-water-color)
 
+* [Text moving & fading in (and out)](text/Move-&-fade-in-(&-out).lua)
+
 
 ### Changing the sky color
 ```lua

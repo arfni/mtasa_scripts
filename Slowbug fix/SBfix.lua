@@ -34,5 +34,3 @@ addEventHandler("onClientMarkerHit", getRootElement(), AntiSlow)
 -- outputChatBox("setElementRotation(vehicle, " .. x2 .. ", " .. y2 .. ", " .. z2 .. ")")
 -- local x3, y3, z3 = getElementPosition(vehicle)
 -- outputChatBox("setElementPosition(vehicle, " .. x3 .. ", " .. y3 .. ", " .. z3 .. ")")
-
--- (c) TomoyoSKGM 2018

@@ -5,6 +5,7 @@ This repository contains useful code snippets for MTA:SA maps.
 	* [Velocity](#velocity)
 	* [Teleport](#teleport)
 	* [Slowmotion](#slowmotion)
+		* [fadeGameSpeed](#fadeGameSpeed)
 	* [Explosion](#explosion)
 	
 * [Play Music](#music)
@@ -55,6 +56,7 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
+---
 ### Teleport
 ```lua
 local Teleport = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
@@ -75,6 +77,7 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
+---
 ### Slowmotion
 ```lua
 local Slowmotion_Start = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
@@ -87,6 +90,8 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 			
 			if source == Slowmotion_Start then
 				setGameSpeed(0.5)
+				-- You can either use a second marker or just set a timer:
+				setTimer(function() setGameSpeed(1.0) end, timeInMS, 1)
 			end
 			
 			if source == Slowmotion_End then
@@ -96,7 +101,32 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
+#### fadeGameSpeed
+This function smoothly transitions to another gamespeed
+```lua
+function fadeGameSpeed(value)
+	local count = 1
+	local currentSpeed = math.round(getGameSpeed(), 1, "floor")
 
+	local steps = 0.1
+	if not (value > currentSpeed) then
+		steps = -0.1
+	end
+
+	for i = currentSpeed, value, steps do
+		setTimer(setGameSpeed, 150 * count, 1, i)
+		count = count + 1
+	end
+end
+
+function math.round(number, decimals, method)
+    decimals = decimals or 0
+    local factor = 10 ^ decimals
+    if (method == "ceil" or method == "floor") then return math[method](number * factor) / factor
+    else return tonumber(("%."..decimals.."f"):format(number)) end
+end
+```
+---
 ### Explosion
 ```lua
 local Explosion = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)

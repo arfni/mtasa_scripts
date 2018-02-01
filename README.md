@@ -20,6 +20,7 @@ This repository contains useful code snippets for MTA:SA maps.
 
 * [Shortcut prevention](shortcut%20prevention)
 	* [isVehicleUpsideDown](shortcut%20prevention/isVehicleUpsideDown.lua)
+	* [isVehicleReversing](shortcut%20prevention/isVehicleReversing.lua)
 
 * [Slowdown prevention](slowdown%20prevention/slowdown%20prevention.lua)
 ---

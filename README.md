@@ -5,7 +5,7 @@ This repository contains useful code snippets for MTA:SA maps.
 	* [Velocity](#velocity)
 	* [Teleport](#teleport)
 	* [Slowmotion](#slowmotion)
-		* [fadeGameSpeed](#fadegamespeed)
+		* [easeGameSpeed](functions/easeGameSpeed.lua)
 	* [Explosion](#explosion)
 	
 * [Play music](#music)
@@ -82,6 +82,8 @@ end)
 ```
 ---
 ### Slowmotion
+
+*I recommend using [easeGameSpeed](functions/easeGameSpeed.lua) instead of setGameSpeed
 ```lua
 local Slowmotion_Start = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
 local Slowmotion_End = createMarker(X, Y, Z, "type", SIZE, RED, GREEN, BLUE, ALPHA)
@@ -104,33 +106,7 @@ addEventHandler("onClientMarkerHit", getRootElement(), function(playerid)
 	end
 end)
 ```
-#### fadeGameSpeed
-This function smoothly transitions to another gamespeed
 
-*Paste this function (including math.round) at the bottom of your lua script and call fadeGameSpeed instead of setGameSpeed*
-```lua
-function fadeGameSpeed(value)
-	local count = 1
-	local currentSpeed = math.round(getGameSpeed(), 1, "floor")
-
-	local steps = 0.1
-	if not (value > currentSpeed) then
-		steps = -0.1
-	end
-
-	for i = currentSpeed, value, steps do
-		setTimer(setGameSpeed, 150 * count, 1, i)
-		count = count + 1
-	end
-end
-
-function math.round(number, decimals, method)
-	decimals = decimals or 0
-	local factor = 10 ^ decimals
-	if (method == "ceil" or method == "floor") then return math[method](number * factor) / factor
-	else return tonumber(("%."..decimals.."f"):format(number)) end
-end
-```
 ---
 ### Explosion
 ```lua
